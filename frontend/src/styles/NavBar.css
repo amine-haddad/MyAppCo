@@ -1,0 +1,37 @@
+.navbar {
+    width: 100%;
+    background: transparent;
+    transition: background 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+    position: absolute;
+    top: 100vh; /* Initially positioned below the viewport */
+    left: 0;
+    z-index: 10;
+    opacity: 1; /* Initially visible */
+  }
+  
+  .navbar.visible {
+    opacity: 1; /* Remains visible */
+  }
+  
+  .navbar.sticky {
+    position: fixed;
+    top: 0; /* Fix to the top of the viewport */
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+  }
+  
+  .navbar:not(.visible) {
+    opacity: 0; /* Hide when not visible */
+  }
+  
+  .navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+  
+  .navbar-content h1 {
+    margin: 0;
+    font-size: 1.5em;
+  }

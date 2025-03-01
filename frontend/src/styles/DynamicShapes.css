@@ -1,0 +1,19 @@
+.dynamic-shapes-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../assets/clavierFondBleuter.jpeg'); /* Replace with your actual image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -3;
+  }
+  
+  .dynamic-shapes-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
