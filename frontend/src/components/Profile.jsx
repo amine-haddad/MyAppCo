@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import ProfileForm from './ProfileForm';
 import '../styles/Profile.css';
-import CreateUser from './CreateUser';
 
 const Profile = () => {
     const [profile, setProfile] = useState(null);
@@ -9,13 +9,21 @@ const Profile = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        axios.get(`http://php:8000/api/users/${userId}`)
-            .then(response => setProfile(response.data))
+        axios.get(`/api/users/${userId}`)
+            .then(response => {
+                setProfile(response.data);
+            })
             .catch(error => {
                 console.error('Error fetching user profile:', error);
+                setProfile(null);
                 setError('Error fetching user profile');
             });
     }, [userId]);
+
+    const handleProfileCreated = (id, newProfile) => {
+        setUserId(id);
+        setProfile(newProfile);
+    };
 
     return (
         <div>
@@ -37,9 +45,7 @@ const Profile = () => {
             ) : (
                 <div>Loading...</div>
             )}
-
-            {/* Formulaire de création */}
-            <CreateUser setUserId={setUserId} />
+            <ProfileForm onSuccess={handleProfileCreated} />
         </div>
     );
 };
