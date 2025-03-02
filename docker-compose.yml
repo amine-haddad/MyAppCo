@@ -19,6 +19,9 @@ services:
       MYSQL_DATABASE: symfonydb
       MYSQL_USER: symfony
       MYSQL_PASSWORD: symfony
+    ports:
+      - "8000:8000"  # Ajout du mappage du port
+
 
   # Serveur Nginx pour Symfony
   nginx:
