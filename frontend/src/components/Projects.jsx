@@ -1,5 +1,7 @@
 import React from "react";
 import "../styles/Projects.css";
+import ProfileForm from "./ProfileForm";
+
 
 const Projects = () => {
   return (
@@ -19,6 +21,9 @@ const Projects = () => {
           <img src="project4.jpg" alt="Project 4" />
         </div>
       </div>
+      <div>
+      </div>
+      <ProfileForm />
     </div>
   );
 };

@@ -6,6 +6,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: '0.0.0.0',
+    port: 5174,
+    hmr: {
+      host: 'localhost',  // WebSocket host
+      port: 5174,         // WebSocket port
+    },
     proxy: {
       '/api': {
         target: 'http://symfony_nginx',
