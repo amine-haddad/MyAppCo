@@ -1,12 +1,19 @@
 import axios from 'axios';
 
-const API_URL = 'http://php:8000/api/users';
-
-export const createUser = async (newUser) => {
-  try {
-    const response = await axios.post(API_URL, newUser);
-    return response.data;
-  } catch (error) {
-    throw new Error('Erreur lors de la création de l\'utilisateur');
-  }
+const userService = {
+    createUser: async (userData) => {
+        try {
+            const response = await axios.post('/api/users', userData, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            return response.data;
+        } catch (error) {
+            console.error('Error creating user:', error);
+            throw error;
+        }
+    }
 };
+
+export default userService;
