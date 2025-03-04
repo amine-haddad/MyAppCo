@@ -23,7 +23,7 @@ const Projects = () => {
       </div>
       <div>
       </div>
-      <ProfileForm />
+      <ProfileForm onSuccess={(data) => console.log("User created!", data)} />
     </div>
   );
 };

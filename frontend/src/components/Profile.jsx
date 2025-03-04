@@ -7,7 +7,7 @@ const Profile = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        axios.get(`/api/users/${userId}`, {
+        axios.get(`http://localhost:8000/api/users/${userId}`, {
             headers: {
                 'Accept': 'application/json'
             }
