@@ -45,17 +45,22 @@ Pour interagir avec les conteneurs Docker, vous pouvez utiliser les commandes su
 
 - **Backend Symfony (PHP)** :
     ```bash
-    docker exec -it myappco_backend bash
+    docker exec -it symfony_php bash
     ```
 
 - **Frontend React** :
     ```bash
-    docker exec -it myappco_frontend bash
+    docker exec -it react_frontend sh
     ```
 
 - **Base de données MySQL** (via Docker) :
     ```bash
-    docker exec -it myappco_mysql bash
+    docker exec -it symfony_mysl bash
+    ```
+
+**Acces vers le serveur nginx  ** (via Docker) :
+    ```bash
+    docker exec -it symfony_nginx sh
     ```
 
 Une fois à l'intérieur, vous pouvez exécuter des commandes Symfony ou React comme vous le feriez normalement.
