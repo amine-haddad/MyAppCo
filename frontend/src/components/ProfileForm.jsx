@@ -10,14 +10,14 @@ const ProfileForm = ({ onSuccess }) => {
     email: "",
     phone: "",
     github_url: "",
-    linkedin_url: "",
+    linkedin_url: ""
   });
   const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     setNewProfile({
       ...newProfile,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.name === "skills" ? e.target.value.split(",") : e.target.value,
     });
   };
 
@@ -53,6 +53,7 @@ const ProfileForm = ({ onSuccess }) => {
           "phone",
           "github_url",
           "linkedin_url",
+          "skills",
         ].map((field) => (
           <div className="form-group" key={field}>
             <label htmlFor={field}>
@@ -68,7 +69,8 @@ const ProfileForm = ({ onSuccess }) => {
               required={
                 field !== "phone" &&
                 field !== "github_url" &&
-                field !== "linkedin_url"
+                field !== "linkedin_url" &&
+                field !== "skills"
               }
             />
           </div>

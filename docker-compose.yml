@@ -67,6 +67,20 @@ services:
     depends_on:
       - php  # Optionnel si tu as besoin de communiquer avec le backend Symfony
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: symfony_pma
+    restart: always
+    depends_on:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "8080:80"
+    networks:
+      - symfony_net
+
 networks:
   symfony_net:
     driver: bridge

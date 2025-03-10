@@ -3,7 +3,7 @@ import NavBar from "./components/NavBar";
 import DynamicShapes from "./components/DynamicShapes";
 import TypingEffect from "./components/TypingEffect";
 import Profile from "./components/Profile";
-import Projects from "./components/Projects";
+import Skill from "./components/Skill";
 import "./styles/App.css";
 import "./styles/TypingEffect.css";
 import "./styles/Projects.css";
@@ -21,7 +21,7 @@ function App() {
       <NavBar />
       <div className="main-content">
         <Profile />
-        <Projects />
+        <Skill />
         {/* Ajoutez d'autres composants ici */}
       </div>
     </div>
