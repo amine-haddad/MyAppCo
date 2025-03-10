@@ -9,10 +9,10 @@ const Profile = () => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8000/api/users/${userId}?expand=skills,experiences,projects`,
+        `http://localhost:8000/api/profiles/${userId}?expand=skills,experiences,projects`,
         {
           headers: {
-            Accept: "application/json",
+            Accept: "application/ld+json",
           },
         }
       )
