@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-
 const ProfileForm = ({ onSuccess }) => {
   const [newProfile, setNewProfile] = useState({
     name: "",
@@ -10,32 +9,34 @@ const ProfileForm = ({ onSuccess }) => {
     email: "",
     phone: "",
     github_url: "",
-    linkedin_url: ""
+    linkedin_url: "",
   });
   const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     setNewProfile({
       ...newProfile,
-      [e.target.name]: e.target.name === "skills" ? e.target.value.split(",") : e.target.value,
+      [e.target.name]:
+        e.target.name === "skills" ? e.target.value.split(",") : e.target.value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8000/api/users", newProfile, {
-        headers: {
-          'Accept': "application/json",
-        },
-        
-      });
+      const response = await axios.post(
+        "http://localhost:8000/api/users",
+        newProfile,
+        {
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
 
-      console.log("User created with ID:", response.data.id);
       onSuccess(response.data.id, newProfile);
       setError(null); // Clear any previous errors
     } catch (err) {
-      console.error("Error creating user profile:", err);
       setError("Error creating user profile");
     }
   };

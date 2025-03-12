@@ -1,0 +1,73 @@
+.section-project {
+    padding: 0;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+  }
+  
+  h1 {
+    color: rgb(0, 11, 77);
+    margin-bottom: 2rem;
+  }
+  
+  /* Wrapper pour les cartes avec arrière-plan */
+  .carousel-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 90%; /* Fixe la largeur du wrapper à 80% */
+    max-width: 1920px;
+    margin: 0 auto; /* Centre le conteneur */
+    box-shadow:20px 20px 20px rgb(0, 11, 77) ;
+    background-color: rgba(0, 11, 77, 0.2);
+    border: 2px solid rgb(156, 155, 254);
+    border-radius: 10px;  
+  }
+  
+  /* Carte */
+  .card {
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    width: 250px; /* Garde la largeur fixe des cartes */
+    padding: 0;
+    margin: 10px;
+  }
+  
+  /* Effet hover sur la carte */
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card-img-top {
+    object-fit: cover;
+    height: 200px;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .card-body {
+    padding: 15px;
+  }
+  
+  .card-title {
+    color: rgb(0, 11, 77);
+    font-weight: bold;
+  }
+  
+  .card-text {
+    color:rgb(0, 11, 77);
+  }
+  
+  .card-footer {
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+  }
+  
+  

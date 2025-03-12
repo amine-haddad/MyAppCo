@@ -1,30 +1,41 @@
-import React from "react";
-import NavBar from "./components/NavBar";
-import DynamicShapes from "./components/DynamicShapes";
-import TypingEffect from "./components/TypingEffect";
-import Profile from "./components/Profile";
-import Skill from "./components/Skill";
-import "./styles/App.css";
-import "./styles/TypingEffect.css";
-import "./styles/Projects.css";
-import "./styles/NavBar.css";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter } from "react-router-dom";
+import CustomNavBar from "./components/CustomNavBar";
+import Router from "./routes/Router";
+import Footer from "./components/Footer";
+import axios from "axios";
+import './styles/CustomNavBar.css';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import './styles/Profile.css'
+
 
 function App() {
+  const [profile, setProfile] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:8000/api/profiles/1?expand=skills,experiences,projects`,
+        {
+          headers: {
+            Accept: "application/ld+json",
+          },
+        }
+      )
+      .then((response) => {
+        setProfile(response.data);
+      })
+      .catch(() => {
+        setError("Error fetching user profile");
+      });
+  }, []);
   return (
-    <div className="app">
-      <div className="content">
-        <DynamicShapes />
-        <div className="overlay">
-          <TypingEffect />
-        </div>
-      </div>
-      <NavBar />
-      <div className="main-content">
-        <Profile />
-        <Skill />
-        {/* Ajoutez d'autres composants ici */}
-      </div>
-    </div>
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <CustomNavBar profile={profile} error={error} />
+      <Router profile={profile} error={error} />
+      <Footer />
+    </BrowserRouter>
   );
 }
 

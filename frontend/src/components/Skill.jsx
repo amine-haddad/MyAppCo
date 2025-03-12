@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../styles/Projects.css";
+import "../styles/Project.css";
 import "../styles/Skill.css";
 import axios from "axios";
 
@@ -13,11 +13,9 @@ const Skill = () => {
         headers: { Accept: "application/json" },
       })
       .then((response) => {
-        console.log("Réponse API:", response.data);
         setSkills(response.data); // L'API renvoie directement un tableau de compétences
       })
       .catch((error) => {
-        console.error("Error fetching skills:", error);
         setSkills([]);
         setError("Erreur lors du chargement des compétences");
       });
@@ -32,16 +30,21 @@ const Skill = () => {
       <div className="skills-container">
         {skills.length > 0 ? (
           skills.map((skill, index) => (
-            <div key={index} className="skill-medallion" style={{
-              backgroundImage: `conic-gradient(rgb(0, 255, 0) 0% ${skill.level}%,rgb(245, 165, 252) ${skill.level}% 100%)`
-            }}>
+            <div
+              key={index}
+              className="skill-medallion"
+              style={{
+                backgroundImage: `conic-gradient(rgba(101, 119, 253, 0.61) 0% ${skill.level}%,rgba(244, 237, 212, 0.75) ${skill.level}% 100%)`,
+              }}
+            >
               <img
                 src="/assets/defaultImgageCode.jpg" // Remplacer avec une image par défaut si nécessaire
                 alt={skill.name}
                 className="skill-image"
               />
               <p>{skill.name}</p> {/* Afficher le nom de la compétence */}
-              <span>{skill.level}%</span> {/* Afficher le pourcentage du niveau */}
+              <span>{skill.level}%</span>{" "}
+              {/* Afficher le pourcentage du niveau */}
             </div>
           ))
         ) : (
